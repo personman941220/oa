@@ -27,7 +27,7 @@
 				<div class="toolbar">
 					<div class="login-info clearfix">
 						<div class="welcome clearfix">
-							<span>欢迎您,</span> <a href="javascript:;" class="user-name">Admin</a>
+							<a href="index/home.do"><span>欢迎您,</span></a> <a href="javascript:;" class="user-name">Admin</a>
 							
 						</div>
 						<div class="login-msg clearfix">

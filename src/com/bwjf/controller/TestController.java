@@ -33,6 +33,6 @@ public class TestController {
 		//List<Role> roleList = tService.getAllRole();
 		//model.addAttribute("roleList", roleList);
 		//return "home";
-		return "rolePermissions/role";
+		return "employee/add";
 	}
 }
