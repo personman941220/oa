@@ -45,7 +45,7 @@
 				</div>
 				<div class="content">
 
-					<iframe src="system_index.html" id="iframe" width="100%"
+					<iframe src="index_body_right.jsp" id="iframe" width="100%"
 						height="100%" frameborder="0"></iframe>
 				</div>
 			</div>
