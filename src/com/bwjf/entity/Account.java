@@ -2,7 +2,7 @@ package com.bwjf.entity;
 
 import java.sql.Date;
 
-public class account {
+public class Account {
 	private String accountId;
 	private int employeeId;
 	private int roleId;
@@ -14,6 +14,9 @@ public class account {
 	private String createBy;
 	private Date updateDate;
 	private String updateBy;
+	public Account(){
+		super();
+	}
 	public String getAccountId() {
 		return accountId;
 	}
