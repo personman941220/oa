@@ -1,19 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta charset="utf-8">
-<link rel="stylesheet" href="../../common/css/sapar.css" />
-<link rel="stylesheet" type="text/css" href="../../common/css/common.css" />
+<link rel="stylesheet" href="css/sapar.css" />
 <link rel="stylesheet" type="text/css" href="css/my_info.css" />
-<link rel="stylesheet" href="../user/css/form.css" />
-<script type="text/javascript" src="../../common/js/jquery.js"></script>
-<script type="text/javascript" src="../../common/js/sapar.js"></script>
-<script type="text/javascript" src="../../common/js/WdatePicker.js"></script>
+<link rel="stylesheet" href="css/form.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/sapar.js"></script>
+<script type="text/javascript" src="js/WdatePicker.js"></script>
 <title>我的资料信息</title>
 </head>
-
 <body>
     <div id="saper-container">
         <div id="saper-hd"></div>

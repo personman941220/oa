@@ -1,18 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
+<base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta charset="utf-8">
-<link rel="stylesheet" href="../../common/css/sapar.css" />
-<link rel="stylesheet" type="text/css" href="../../common/css/common.css" />
-<link rel="stylesheet" type="text/css" href="css/user.css" />
-<script type="text/javascript" src="../../common/js/jquery.js"></script>
-<script type="text/javascript" src="../../common/js/sapar.js"></script>
-<script type="text/javascript" src="../../common/js/WdatePicker.js"></script>
+<link rel="stylesheet" href="css/sapar.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/sapar.js"></script>
+<script type="text/javascript" src="js/WdatePicker.js"></script>
 <title>员工管理</title>
 </head>
-
 <body>
     <div id="saper-container">
         <div id="saper-hd"></div>
@@ -72,8 +76,8 @@
                                 	<td>暂时没有数据</td> 
                                 	<td>暂时没有数据</td> 
                                 	<td>暂时没有数据</td>
-                                	<td><a href="detail.html">详情</a>
-                                		<a href="alter.html">修改</a>
+                                	<td><a href="detail.jsp">详情</a>
+                                		<a href="alter.jsp">修改</a>
                                 		<a href="#">删除</a>
                                 	</td> 
                                 </tr>
