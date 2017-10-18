@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
 	<div id="container">
 		<div id="hd">
 			<div class="hd-wrap clearfix">
@@ -27,6 +28,7 @@
 					<div class="login-info clearfix">
 						<div class="welcome clearfix">
 							<span>欢迎您,</span> <a href="javascript:;" class="user-name">Admin</a>
+							
 						</div>
 						<div class="login-msg clearfix">
 							<a href="javascript:;" class="msg-txt">消息</a> <a
@@ -43,8 +45,9 @@
 		</div>
 		<div id="bd">
 			<div class="wrap clearfix">
-				<iframe src="static/system/index.html" id="iframe" width="100%"
-					height="100%" frameborder="0"></iframe>
+				<iframe src="index_body_left.jsp" id="iframe" width="100%"
+					height="100%" frameborder="0">
+				</iframe>
 			</div>
 		</div>
 		<div id="ft" class="clearfix">
