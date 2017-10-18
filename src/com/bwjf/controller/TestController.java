@@ -15,8 +15,6 @@ import com.bwjf.service.ITest;
 @RequestMapping("/index")
 public class TestController {
 	
-	
-
 	@Resource
 	private ITest tService;
 	
@@ -29,12 +27,12 @@ public class TestController {
 	}
 
 	@RequestMapping("/home")
-	private String home(Model model) {
+	private String home(/*Model model*/) {
 		
 		System.out.println("===TestController.home()====");
 		//List<Role> roleList = tService.getAllRole();
 		//model.addAttribute("roleList", roleList);
 		//return "home";
-		return "role";
+		return "pwdModify";
 	}
 }
