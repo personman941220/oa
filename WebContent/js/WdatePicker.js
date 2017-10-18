@@ -563,10 +563,10 @@ var $dp, WdatePicker;
 					if (D[C].name == J.skin)
 						$
 								.push("<link rel=\"stylesheet\" type=\"text/css\" href=\""
-										+ A
-										+ "skin/"
-										+ D[C].name
-										+ "/datepicker.css\" charset=\""
+										//+ A
+										+ "css/"
+										//+ D[C].name
+										+ "datepicker.css\" charset=\""
 										+ D[C].charset + "\"/>");
 				$.push("<script src=\"" + A + "calendar.js\"></script>");
 				$
