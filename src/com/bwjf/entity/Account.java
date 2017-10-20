@@ -1,26 +1,28 @@
 package com.bwjf.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
+/**
+ * @author 张恭雨
+ * 创建时间：2017-10-17 下午3:01:01
+ * 类描述：账户实体类
+ * 版本：v1.0 
+ */
 public class Account {
-	private String accountId;
-	private int employeeId;
-	private int roleId;
-	private int areaId;
-	private String password;
-	private String isOnline;
-	private String status;
-	private Date createDate;
-	private String createBy;
-	private Date updateDate;
-	private String updateBy;
-	public Account(){
-		super();
-	}
-	public String getAccountId() {
+	private int accountId;		//账户ID
+	private int employeeId;		//员工ID
+	private int roleId;			//角色ID	
+	private int	areaId;			//区域ID
+	private String password;	//账户密码
+	private boolean status;		//账户状态   员工是否离职，1：在职，0：离职
+	private Date createDate;	//创建时间
+	private String createBy;	//创建人。
+	private Date updateDate;	//更新时间
+	private String updateBy;	//更新人
+	public int getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(String accountId) {
+	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
 	public int getEmployeeId() {
@@ -47,16 +49,10 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getIsOnline() {
-		return isOnline;
-	}
-	public void setIsOnline(String isOnline) {
-		this.isOnline = isOnline;
-	}
-	public String getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 	public Date getCreateDate() {
@@ -83,13 +79,6 @@ public class Account {
 	public void setUpdateBy(String updateBy) {
 		this.updateBy = updateBy;
 	}
-	@Override
-	public String toString(){
-		return accountId+","+employeeId+","+
-				roleId+","+areaId+","+
-				password+","+isOnline+","+status+","+
-				createDate+","+createBy+","+updateDate+","+
-				updateBy;
-				
-	}
+	
+	
 }

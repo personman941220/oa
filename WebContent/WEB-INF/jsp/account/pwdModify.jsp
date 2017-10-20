@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="kv-item clearfix">
 						<label><span class="impInfo">*</span>新密码：</label>
 						<div class="kv-item-content">
-							<input type="text" placeholder="新密码">
+							<input type="text" name ="newPass" placeholder="新密码">
 						</div>
 					</div>
 					<div class="kv-item clearfix">
