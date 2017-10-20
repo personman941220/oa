@@ -5,15 +5,14 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.0 Transitional//EN" "http://www.w3.org/TR/html5/loose.dtd">
 <html>
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/sapar.css" />
-<link rel="stylesheet" type="text/css" href="css/my_info.css" />
-<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+<link rel="stylesheet" type="text/css" href="css/my_info.css" />	
 <link rel="stylesheet" href="css/form.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/sapar.js"></script>
@@ -103,13 +102,17 @@ $('select').iSelect();
 												<option>天津</option>
 												<option>上海</option>
 												<option>重庆</option>
-											</select> <select name="addressTwo">
+											</select> 
+											<br/>
+											<select name="addressTwo">
 												<option>请选择市</option>
 												<option>南京</option>
 												<option>无锡</option>
 												<option>苏州</option>
 												<option>常州</option>
-											</select> <input name="addressThree" type="text" placeholder="街道">
+											</select> 
+											<br/>
+											<input name="addressThree" type="text" placeholder="街道">
 										</div>
 									</div>
 
@@ -312,7 +315,7 @@ $('select').iSelect();
 		</div>
 	</div>
 	<div id="saper-ft"></div>
-	</div>
+	
 
 </body>
 </html>

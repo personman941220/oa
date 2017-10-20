@@ -12,7 +12,7 @@ import com.bwjf.entity.Role;
 import com.bwjf.service.ITest;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("")
 public class TestController {
 	
 	@Resource

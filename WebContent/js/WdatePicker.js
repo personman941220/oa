@@ -129,8 +129,9 @@ var $dp, WdatePicker;
 	else
 		G = true;
 	A = $.$dpPath || J();
-	/*if ($.$wdate)
-		K(A + "skin/WdatePicker.css");*/
+	if ($.$wdate)
+		//K(A + "skin/WdatePicker.css");
+		K("css/WdatePicker.css");
 	V = Y;
 	if ($.$crossFrame) {
 		try {
@@ -555,7 +556,7 @@ var $dp, WdatePicker;
 						"var doc=document, $d, $dp, $cfg=doc.cfg, $pdp = parent.$dp, $dt, $tdt, $sdt, $lastInput, $IE=$pdp.ie, $FF = $pdp.ff,$OPERA=$pdp.opera, $ny, $cMark = false;",
 						"if($cfg.eCont){$dp = {};for(var p in $pdp)$dp[p]=$pdp[p];}else{$dp=$pdp;};for(var p in $cfg){$dp[p]=$cfg[p];}",
 						"doc.oncontextmenu=function(){try{$c._fillQS(!$dp.has.d,1);showB($d.qsDivSel);}catch(e){};return false;};",
-						"</script><script src=", A, "lang/", _.name,
+						"</script><script src=", A, "/", _.name,
 						".js charset=", _.charset, "></script>" ];
 				if (F)
 					$[1] = "document.domain=\"" + I + "\";";
@@ -563,10 +564,7 @@ var $dp, WdatePicker;
 					if (D[C].name == J.skin)
 						$
 								.push("<link rel=\"stylesheet\" type=\"text/css\" href=\""
-										//+ A
-										+ "css/"
-										//+ D[C].name
-										+ "datepicker.css\" charset=\""
+										+ "css/datepicker.css\" charset=\""
 										+ D[C].charset + "\"/>");
 				$.push("<script src=\"" + A + "calendar.js\"></script>");
 				$
