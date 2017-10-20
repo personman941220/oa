@@ -47,7 +47,7 @@
 			<div class="wrap clearfix">
 				<iframe src="index_body_left.jsp" id="iframe" width="100%"
 					height="100%" frameborder="0">
-				</iframe>
+				</iframe>	
 			</div>
 		</div>
 		<div id="ft" class="clearfix">
