@@ -45,7 +45,7 @@
 		</div>
 		<div id="bd">
 			<div class="wrap clearfix">
-				<iframe src="index_body_left.jsp" id="iframe" width="100%"
+				<iframe src="comment/index_body_left.jsp" id="iframe" width="100%"
 					height="100%" frameborder="0">
 				</iframe>	
 			</div>

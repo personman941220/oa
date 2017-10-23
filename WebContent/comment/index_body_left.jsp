@@ -77,7 +77,7 @@
 				</div>
 				<div class="content">
 
-					<iframe src="index_body_right.jsp" id="iframe" width="100%" height="100%" frameborder="0">
+					<iframe src="comment/index_body_right.jsp" id="iframe" width="100%" height="100%" frameborder="0">
 					</iframe>
 				</div>
 			</div>
