@@ -2,6 +2,8 @@ package com.bwjf.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.bwjf.entity.Account;
 
 /**
@@ -13,4 +15,6 @@ import com.bwjf.entity.Account;
 public interface AccountMapper {
 	public Account getAccountByEmployeeId(int employeeId);		//获取帐户信息通过员工ID
 	public List<Account> getAccountList(int start);						//获取当页所有账户
+	public List<Account> getAccountList();						//获取所有账户
+	public Account getAcccountByConditions(@Param("accountId")String accountId,@Param("status")int status) throws Exception;	//条件查询获取帐户信息
 }

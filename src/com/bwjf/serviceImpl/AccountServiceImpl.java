@@ -40,5 +40,20 @@ public class AccountServiceImpl implements AccountService {
 		List<Account> accountList =null;// accountMapper.getAccountList(start);
 		return accountList;
 	}
+	@Override
+	public Account getAcccountByConditions(String accountId, int status) throws Exception {
+		// TODO Auto-generated method stub
+		return accountMapper.getAcccountByConditions(accountId, status);
+	}
+	@Override
+	public int getPage() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public List<Account> getAccountList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

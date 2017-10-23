@@ -8,4 +8,8 @@
  	<select id="getAccountList" parameterType="int" resultType="Account">
  		select * from (select A.*,rownum rn from( select * from account )A where rownum  &lt; (#{start}/10+1)*10+1 )where rn &gt; #{start}
  	</select>
+ 	<!-- 条件查询获取帐户信息 -->
+	<select id="getAcccountByConditions" resultType="account">
+		select * from account where accountId=#{accountId,jdbcType=VARCHAR} and status=#{status,jdbcType=INTEGER}
+	</select>
 </mapper>

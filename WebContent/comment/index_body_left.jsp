@@ -68,7 +68,7 @@
 							</div></li>
 						-->
 						<li class="system"><div class="nav-header">
-								<a href="javascript:;" data-src="/jsp/account/pwdModify.jsp"
+								<a href="pwdModify.do" data-src="/jsp/account/pwdModify.jsp"
 									class="clearfix"><span>密码修改</span><i class="icon"></i></a>
 							</div></li>
 						
