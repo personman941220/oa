@@ -29,11 +29,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="login-input">
                 	<p class="user ue-clear">
                     	<label>用户名</label>
-                        <input type="text" name="userName"/>
+                        <input type="text" name="username"/>
                     </p>
                     <p class="password ue-clear">
                     	<label>密&nbsp;&nbsp;&nbsp;码</label>
-                        <input type="password"  name="userPassword"/>
+                        <input type="password"  name="password"/>
                     </p>
                 </div>
                 <div class="login-btn ue-clear">

@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="kv-item clearfix">
 						<label>用户名：</label>
 						<div class="kv-item-content">
-							<div class="user-name" style="line-height: 30px;">uzbar</div>
+							<div class="user-name" style="line-height: 30px;">${account.getAccountId() }</div>
 						</div>
 					</div>
 					<div class="kv-item clearfix">
@@ -56,6 +56,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="saper-ft"></div>
 	</div>
-
 </body>
+<script type="text/javascript"></script>
 </html>

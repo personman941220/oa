@@ -11,5 +11,5 @@ import com.bwjf.entity.Account;
  */
 public interface AccountService {
 	public List<Account> getAccountList();			//获得所有账户
-	
+	public Account getAcccountByConditions(String accountId,int status) throws Exception;	//条件查询获取帐户信息
 }
