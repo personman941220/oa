@@ -10,6 +10,6 @@ import com.bwjf.entity.Account;
  * @描述 账户逻辑业务层接口
  */
 public interface AccountService {
-	public List<Account> getAccountList();			//获得所有账户
-	
+	public List<Account> getAccountList(int page);			//获得当页所有账户
+	public int getPage();									//获取页码
 }

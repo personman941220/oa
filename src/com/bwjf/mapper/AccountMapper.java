@@ -12,5 +12,5 @@ import com.bwjf.entity.Account;
  */
 public interface AccountMapper {
 	public Account getAccountByEmployeeId(int employeeId);		//获取帐户信息通过员工ID
-	public List<Account> getAccountList();						//获取所有账户
+	public List<Account> getAccountList(int start);						//获取当页所有账户
 }

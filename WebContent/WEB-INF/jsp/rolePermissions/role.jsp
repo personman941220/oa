@@ -11,7 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
 <link rel="stylesheet" href="<%=path %>/css/sapar.css" />
-
 <script type="text/javascript" src="<%=path %>/js/jquery.js"></script>
 <script type="text/javascript" src="<%=path %>/js/sapar.js"></script>
 <script type="text/javascript" src="<%=path %>/js/WdatePicker.js"></script>
@@ -19,12 +18,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <script type="text/javascript">
-	function save() {
-		//var no = document.getElementById("no").value;
-		var role = document.getElementById("role").value;
+	function save(eId) {
+		var no = eId;
+		var role = document.getElementById(eId).value;
 
 		alert(no + "," + role);
 	}
+	/*function turnThePage(page){
+		$.ajax({
+		  	url : "/rolePageContent.do",   //要提交的URL路径
+			type : "post",      //发送请求的方式
+			data : "page="+page,       //要发送到服务器的数据
+			dataType : "json", //指定传输的数据格式
+			success : function(result) {//请求成功后要执行的代码		
+				document.getElementById("div1").innerHTML = result.pageColumn;				
+				document.getElementById("div2").innerHTML = result.normalColumn;
+				document.getElementById("no").value = result.no;
+				document.getElementById("acceptId").value = result.acceptId;
+				
+			}
+		});
+	}*/
 </script>
 <body>
 	<div id="saper-container">
@@ -80,23 +94,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach var="account" items="${accountAllList}" varStatus="a">
+								<c:forEach var="employee" items="${employeeAllList}" varStatus="e">
+								<c:forEach var="role" items="${roleAllList}" varStatus="r">
+								<c:if test="${a.index==e.index}">
+								<c:if test="${e.index==r.index}">
 								<tr>
-									<td id="no">20130105009005</td>
-									<td>王培源</td>
-									<td style="width: 100px;"><select id="role"
-										style="width: 100%;">
-										<c:forEach var="role" items="${roleList}">
-											<option value="${role.name }">${role.name}</option>
+									<td id="no">${account.employeeId}</td>
+									<td>${employee.name}</td> 
+									<td style="width: 100px;">
+									<select id="${account.employeeId}" style="width: 100%;">
+										<option value="${role.name }">${role.name}</option>
+										<c:forEach var="roles" items="${roleList}">
+										<c:if test="${roles.name!=role.name}">
+											<option value="${roles.name }">${roles.name}</option>
+										</c:if>
 										</c:forEach>
 									</select></td>
-									<td><a href="" onclick="save();">保存</a></td>
+									<td><a href="" onclick="save(${account.employeeId});">保存</a></td>
 								</tr>
-
+								</c:if>
+								</c:if>
+								</c:forEach>
+								</c:forEach>
+								</c:forEach>
 							</tbody>
-						</table>
-					</div>
+						</table>	
+					</div>			
 				</div>
-				<!--表格结束-->
+				<!--表格结束-->	
+				<!-- 分页求美工 -->
+				<a href="rolePageContent.do?page=0" > 首页 </a>	
+				<c:if test="${nowPage>0}">
+					<a href="rolePageContent.do?page=${nowPage-1}" > &lt;&lt;上一页 </a>
+				</c:if>	
+				${nowPage+1}
+				<a href="rolePageContent.do?page=${nowPage+1}" > 下一页&gt;&gt; </a>
+				<a href="javascript:;" > 尾页 </a>
+				
 			</div>
 		</div>
 		<div id="saper-ft"></div>

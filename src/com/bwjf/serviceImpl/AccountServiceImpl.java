@@ -30,9 +30,14 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public List<Account> getAccountList() {
-		System.out.println("---AccountServiceImpl.getAccountList()---");
-		List<Account> accountList = accountMapper.getAccountList();
+	public List<Account> getAccountList(int page) {
+		System.out.println("---AccountServiceImpl.getAccountList("+page+")---");
+		int start = page*10;
+		System.out.println("start:"+start);
+		if(page==0) {
+			List<Account> accountList =	accountMapper.getAccountList(start);
+		}
+		List<Account> accountList =null;// accountMapper.getAccountList(start);
 		return accountList;
 	}
 
