@@ -34,7 +34,7 @@ public class Employee {
 	private Date probationPeriod;		//试用日期
 	private Date positivePhase;			//转正日期
 	private Date graduationDate;		//毕业时间
-	private boolean status;				//员工是否在职 1：在职，0：离职
+	private int status;				//员工是否在职 1：在职，0：离职
 	
 	public int getEmployeeId() {
 		return employeeId;
@@ -186,10 +186,11 @@ public class Employee {
 	public void setGraduationDate(Date graduationDate) {
 		this.graduationDate = graduationDate;
 	}
-	public boolean isStatus() {
+	
+	public int getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	public Employee() {

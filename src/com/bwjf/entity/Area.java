@@ -12,7 +12,7 @@ public class Area {
 	private int areaId;		//区域ID
 	private	String name;	//区域名称
 	private int parentId;	//父区域ID
-	private boolean status;	//区域是否有效，1：有效，0无效。
+	private int status;	//区域是否有效，1：有效，0无效。
 	private String descirption;		//区域描述
 	private int provinceId;			//省ID
 	private int cityId;				//市ID
@@ -41,10 +41,11 @@ public class Area {
 	public void setParentId(int parentId) {
 		this.parentId = parentId;
 	}
-	public boolean isStatus() {
+	
+	public int getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	public String getDescirption() {

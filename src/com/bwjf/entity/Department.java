@@ -9,7 +9,7 @@ package com.bwjf.entity;
 public class Department {
 	private int departmentId;		//部门ID
 	private String name;			//部门名称
-	private boolean status;			//部门是否有效   1：有效，0无效
+	private int status;			//部门是否有效   1：有效，0无效
 	public int getDepartmentId() {
 		return departmentId;
 	}
@@ -22,10 +22,11 @@ public class Department {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isStatus() {
+	
+	public int getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	public Department() {

@@ -9,21 +9,28 @@ import java.util.Date;
  * 版本：v1.0 
  */
 public class Account {
-	private int accountId;		//账户ID
+	private String accountId;		//账户ID
 	private int employeeId;		//员工ID
 	private int roleId;			//角色ID	
 	private int	areaId;			//区域ID
 	private String password;	//账户密码
-	private boolean status;		//账户状态   员工是否离职，1：在职，0：离职
+	private int status;			//账户状态   员工是否离职，1：在职，0：离职
 	private Date createDate;	//创建时间
-	private String createBy;	//创建人。
+	private String createBy;	//创建人
 	private Date updateDate;	//更新时间
 	private String updateBy;	//更新人
-	public int getAccountId() {
+	
+	public String getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(int accountId) {
+	public void setAccountId(String accountId) {
 		this.accountId = accountId;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	public int getEmployeeId() {
 		return employeeId;
@@ -49,12 +56,7 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+	
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -78,6 +80,16 @@ public class Account {
 	}
 	public void setUpdateBy(String updateBy) {
 		this.updateBy = updateBy;
+	}
+	@Override
+	public String toString() {
+		return "Account [accountId=" + accountId + ", employeeId=" + employeeId + ", roleId=" + roleId + ", areaId="
+				+ areaId + ", password=" + password + ", status=" + status + ", createDate=" + createDate
+				+ ", createBy=" + createBy + ", updateDate=" + updateDate + ", updateBy=" + updateBy + "]";
+	}
+	public Account() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	
