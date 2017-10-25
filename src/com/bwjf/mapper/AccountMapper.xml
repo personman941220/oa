@@ -12,4 +12,8 @@
 	<select id="getAcccountByConditions" resultType="account">
 		select * from account where accountId=#{accountId,jdbcType=VARCHAR} and status=#{status,jdbcType=INTEGER}
 	</select>
+	<!-- 通过员工ID修改账户密码 -->
+	<update id="setAccountPasswordById" parameterType="account" >
+ 		update  account set password=#{password,jdbcType=VARCHAR} where accountId = #{accountId,jdbcType=VARCHAR}
+ 	</update>
 </mapper>

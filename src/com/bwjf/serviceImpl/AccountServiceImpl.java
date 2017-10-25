@@ -55,5 +55,11 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public Account setAccountPasswordById(String password, String accountId) {
+		System.out.println("daoleService");
+		accountMapper.setAccountPasswordById(password, accountId);
+		return null;
+	}
 
 }

@@ -9,11 +9,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="<%=path%>/css/sapar.css" />
-<script type="text/javascript" src="<%=path%>/common/js/jquery.js"></script>
-<script type="text/javascript" src="<%=path%>/common/js/sapar.js"></script>
+<script type="text/javascript" src="<%=path%>/js/jquery.js"></script>
+<script type="text/javascript" src="<%=path%>/js/sapar.js"></script>
 <script type="text/javascript" src="<%=path%>/js/WdatePicker.js"></script>
 <title>修改密码</title>
 </head>
+<script type="text/javascript">
+	function show(){
+		var Oldpassword = document.getElementById("Oldpassword").value;
+		$.ajax({
+			url : "Oldpassword.do",
+			type : "get", 
+			data : "Oldpassword="+Oldpassword,
+			dataType : "json",
+			success: function(result){
+				document.getElementById("p1").innerHTML = result.msg;
+			}
+		});
+	}
+	function show2(){
+		var Newpassword = document.getElementById("Newpassword").value;
+		var Newpassword2 = document.getElementById("Newpassword2").value;
+		if(Newpassword!=Newpassword2){
+			document.getElementById("p2").innerHTML = "新密码和确认密码不一致，请确认";
+		}
+	}
+	function submit(){
+		var Oldpassword = document.getElementById("Oldpassword").value;
+		var Newpassword = document.getElementById("Newpassword").value;
+		var Newpassword2 = document.getElementById("Newpassword2").value;
+		$.ajax({
+			url : "pwdModify2.do",
+			type : "get", 
+			data: "Oldpassword="+Oldpassword+"Newpassword="+Newpassword+"Newpassword2="+Newpassword2,
+			dataType : "json",
+			success: function(result){
+				alert(result.msg);
+			}
+		});
+	}
+</script>
 <body>
 	<div id="saper-container">
 		<div id="saper-hd"></div>
@@ -32,24 +67,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="kv-item clearfix">
 						<label><span class="impInfo">*</span>原密码：</label>
 						<div class="kv-item-content">
-							<input type="text" placeholder="原密码">
+							<input id="Oldpassword" type="text" placeholder="原密码" onblur="show()"> <h3 id="p1"></h3>
 						</div>
 					</div>
 					<div class="kv-item clearfix">
 						<label><span class="impInfo">*</span>新密码：</label>
 						<div class="kv-item-content">
-							<input type="text" name ="newPass" placeholder="新密码">
+							<input id="Newpassword" type="text" name ="newPass" placeholder="新密码" >
 						</div>
 					</div>
 					<div class="kv-item clearfix">
 						<label><span class="impInfo">*</span>确认密码：</label>
 						<div class="kv-item-content">
-							<input type="text" placeholder="确认密码">
+							<input id="Newpassword2" type="text" placeholder="确认密码" onblur="show2()"><h3 id="p2"></h3>
 						</div>
 					</div>
 
 					<div class="buttons">
-						<a href="javascript:;" class="sapar-btn sapar-btn-recom">确定</a>
+						<a href="" onclick="submit()" class="sapar-btn sapar-btn-recom">确定</a>
 					</div>
 				</form>
 			</div>
@@ -57,5 +92,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="saper-ft"></div>
 	</div>
 </body>
-<script type="text/javascript"></script>
+
 </html>
