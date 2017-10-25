@@ -56,10 +56,8 @@ public class AccountServiceImpl implements AccountService {
 		return null;
 	}
 	@Override
-	public Account setAccountPasswordById(String password, String accountId) {
-		System.out.println("daoleService");
-		accountMapper.setAccountPasswordById(password, accountId);
-		return null;
+	public void setAccountPasswordById(Account account) {
+		accountMapper.setAccountPasswordById(account);
 	}
 
 }

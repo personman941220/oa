@@ -28,10 +28,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 	}
 	function show2(){
+		var Oldpassword = document.getElementById("Oldpassword").value;
+		var Newpassword = document.getElementById("Newpassword").value;
+		if(Oldpassword==Newpassword){
+			document.getElementById("p2").innerHTML = "不能与原密码相同";
+		}
+	}
+	function show3(){
 		var Newpassword = document.getElementById("Newpassword").value;
 		var Newpassword2 = document.getElementById("Newpassword2").value;
 		if(Newpassword!=Newpassword2){
-			document.getElementById("p2").innerHTML = "新密码和确认密码不一致，请确认";
+			document.getElementById("p3").innerHTML = "新密码和确认密码不一致，请确认";
 		}
 	}
 	function submit(){
@@ -41,7 +48,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$.ajax({
 			url : "pwdModify2.do",
 			type : "get", 
-			data: "Oldpassword="+Oldpassword+"Newpassword="+Newpassword+"Newpassword2="+Newpassword2,
+			data: [
+			       {"name":"Oldpassword","value":Oldpassword},
+			       {"name":"Newpassword","value":Newpassword},
+			       {"name":"Newpassword2","value":Newpassword2},
+			       ],
 			dataType : "json",
 			success: function(result){
 				alert(result.msg);
@@ -73,16 +84,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="kv-item clearfix">
 						<label><span class="impInfo">*</span>新密码：</label>
 						<div class="kv-item-content">
-							<input id="Newpassword" type="text" name ="newPass" placeholder="新密码" >
+							<input id="Newpassword" type="text"  placeholder="新密码" onblur="show2()"><h3 id="p2"></h3>
 						</div>
 					</div>
 					<div class="kv-item clearfix">
 						<label><span class="impInfo">*</span>确认密码：</label>
 						<div class="kv-item-content">
-							<input id="Newpassword2" type="text" placeholder="确认密码" onblur="show2()"><h3 id="p2"></h3>
+							<input id="Newpassword2" type="text" placeholder="确认密码" onblur="show3()"><h3 id="p3"></h3>
 						</div>
 					</div>
-
 					<div class="buttons">
 						<a href="" onclick="submit()" class="sapar-btn sapar-btn-recom">确定</a>
 					</div>

@@ -14,5 +14,5 @@ public interface AccountService {
 	public int getPage();									//获取页码
 	public List<Account> getAccountList();			//获得所有账户
 	public Account getAcccountByConditions(String accountId,int status) throws Exception;	//条件查询获取帐户信息
-	public Account setAccountPasswordById(String password,String accountId);//修改密码
+	public void setAccountPasswordById(Account account);//修改密码
 }

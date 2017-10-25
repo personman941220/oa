@@ -130,16 +130,14 @@ public class LoginController {
 		Account account = (Account) req.getSession().getAttribute("account");
 		Map map = new HashMap();
 		//判断是否是本人
-		System.out.println(Oldpassword);
 		System.out.println(Oldpassword.equals(account.getPassword()));
 		if(Oldpassword.equals(account.getPassword())){
-			System.out.println("daole2");
 			//判断两次密码是否一致
 			if(Newpassword.equals(Newpassword2)){
 				//进行修改密码操作。
 				Newpassword2 = MD5Util.getMD5(Newpassword2);
-				System.out.println("daole3");
-				accountService.setAccountPasswordById(Newpassword2, account.getAccountId());
+				account.setPassword(Newpassword2);
+				accountService.setAccountPasswordById(account);
 			}else{
 				map.put("msg", "新密码和确认密码不一致，请确认");
 			}
