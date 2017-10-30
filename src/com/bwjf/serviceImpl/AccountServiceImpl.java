@@ -1,5 +1,6 @@
 package com.bwjf.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bwjf.entity.Account;
+import com.bwjf.entity.Employee;
 import com.bwjf.mapper.AccountMapper;
 import com.bwjf.service.AccountService;
 /**
@@ -34,30 +36,61 @@ public class AccountServiceImpl implements AccountService {
 		System.out.println("---AccountServiceImpl.getAccountList("+page+")---");
 		int start = page*10;
 		System.out.println("start:"+start);
-		if(page==0) {
-			List<Account> accountList =	accountMapper.getAccountList(start);
-		}
-		List<Account> accountList =null;// accountMapper.getAccountList(start);
+		
+		List<Account> accountList =	accountMapper.getAccountList(start);
+		
 		return accountList;
 	}
 	@Override
 	public Account getAcccountByConditions(String accountId, int status) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return accountMapper.getAcccountByConditions(accountId, status);
 	}
 	@Override
 	public int getPage() {
-		// TODO Auto-generated method stub
-		return 0;
+		int num = accountMapper.getPage();
+		if (num % 10 != 0) {
+			num = num / 10 + 1;
+		} else
+			num = num / 10;
+		return num;
 	}
 	@Override
-	public List<Account> getAccountList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Account> getAreaAccount(int areaId) {
+		System.out.println("---AccountServiceImpl.getAreaAccount(areaId:"+areaId+")---");	
+		return accountMapper.getAreaAccount(areaId);
 	}
 	@Override
-	public void setAccountPasswordById(Account account) {
-		accountMapper.setAccountPasswordById(account);
+	public List<Account> getAccountByEmployeeName(List<Employee> employeeAllList) {
+		System.out.println("---AccountServiceImpl.getAccountByEmployeeName(List<Employee> employeeAllList)---");
+//		System.out.println("employeeAllList:");
+//		for (Employee employee : employeeAllList) {
+//			System.out.println(employee.getEmployeeId());
+//		}
+		
+		List<Account> accounts = new ArrayList<>();
+		Account account=null;		
+		
+		for (Employee employee : employeeAllList) {
+			account = new Account();
+			account = accountMapper.getAccountByEmployeeId(employee.getEmployeeId());
+			accounts.add(account);
+		}
+//		System.out.println("--- accounts:---");
+//		for (Account a : accounts) {
+//			System.out.println(a.getEmployeeId());
+//		}
+		return accounts;
 	}
-
+	@Override
+	public void UpdateRole(int employeeId, int roleId) {
+		
+		accountMapper.UpdateRole(employeeId, roleId);
+		
+	}
+	
+	@Override
+	public void setPasswordById(Account account){
+		accountMapper.setPasswordById(account);
+	}
 }

@@ -6,6 +6,11 @@
 	
  	<!-- 根据工号查询单个员工信息 -->
  	<select id="getEmployeeById" parameterType="int" resultType="Employee">
- 		select * from employee where employeeid=#{employeeId}
+ 		select employeeid,name from employee where employeeid=#{employeeId}
+ 	</select>
+ 	
+ 	<!-- 根据名字模糊查员工信息 -->
+ 	<select id="getEmployeeByName" parameterType="String" resultType="Employee">
+ 		select employeeid,name from employee where name like '%${_parameter}%'
  	</select>
 </mapper>

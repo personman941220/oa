@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bwjf.mapper.AreaMapper">
+
+	<!-- 查询所有区域信息 -->
+	<select resultType="area" id="getAllArea">
+		select areaId,name,parentId,link
+		from area where status=#{status}
+	</select>
+
+	<!-- 联级的删除区域根据ID -->
+	<delete id="deleteById" parameterType="int">
+		delete from area where
+		areaId=#{areId}
+	</delete>
+
+	<!-- 更新节点是否有效字段 -->
+	<update id="updateById">
+		update area set status=#{status,jdbcType=INTEGER}
+		where areaId=#{areaId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 得到父节点的信息 -->
+	<select resultType="int" id="getAreaByParentId" parameterType="int">
+		select areaId from area where parentId=#{parentId}
+	</select>
+
+	<!-- 查询区域详细信息 -->
+	<select resultType="area" id="getAreaById" parameterType="int">
+		select * from area where areaId=#{areaId}
+	</select>
+
+	<!-- 获取区域名称通过ID -->
+	<select resultType="String" id="getNameById" parameterType="int">
+		select name from area where areaId=#{areaId}
+	</select>
+
+</mapper>

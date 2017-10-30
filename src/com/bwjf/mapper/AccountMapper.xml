@@ -5,15 +5,37 @@
 <mapper namespace="com.bwjf.mapper.AccountMapper">
 	
  	<!-- 查询所有账户 -->
- 	<select id="getAccountList" parameterType="int" resultType="Account">
- 		select * from (select A.*,rownum rn from( select * from account )A where rownum  &lt; (#{start}/10+1)*10+1 )where rn &gt; #{start}
+ 	<select id="getAreaAccount" parameterType="int" resultType="Account">
+ 		select employeeid,roleid,areaid from account where areaid = #{areaId}
  	</select>
+ 	
+ 	<!-- 查询总行数 -->
+ 	<select id="getPage" resultType="int">
+ 		select count(1) from account
+ 	</select>
+ 	
  	<!-- 条件查询获取帐户信息 -->
 	<select id="getAcccountByConditions" resultType="account">
 		select * from account where accountId=#{accountId,jdbcType=VARCHAR} and status=#{status,jdbcType=INTEGER}
 	</select>
-	<!-- 通过员工ID修改账户密码 -->
-	<update id="setAccountPasswordById" parameterType="Account" >
- 		update account set password=#{password,jdbcType=VARCHAR} where accountId = #{accountId,jdbcType=VARCHAR}
- 	</update>
+	
+	<!-- 查询区域内所有账号户 -->
+	<select id="getAccountList" parameterType="int" resultType="Account">
+		select employeeid,roleid,areaid from (select A.*,rownum rn from( select employeeid,roleid,areaid from account )A where rownum  &lt; (#{start}/10+1)*10+1 )where rn &gt; #{start}
+	</select>
+	
+	<!-- 获取帐户信息通过员工ID -->
+	<select id="getAccountByEmployeeId" parameterType="int" resultType="Account">
+		select employeeid,roleid,areaid from account where employeeid = #{employeeId}
+	</select>
+	
+	<!-- 根据employeeid修改roleid -->
+	<update id="UpdateRole" parameterType="int" >
+		update account set roleid=#{roleId} where employeeid=#{employeeId}
+	</update>
+	
+	<update id="setPasswordById" parameterType="Account">
+		update account set password=#{password} where accountId=#{accountId}
+	</update>
+	
 </mapper>

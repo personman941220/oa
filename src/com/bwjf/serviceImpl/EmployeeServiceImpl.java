@@ -39,19 +39,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		//1.输出数据流向日志	
 		//2.查询员工信息,插入集合emList
 		System.out.println("---EmployeeServiceImpl.getEmployeeByList(List<Account> accountList)---");
-		System.out.println("<<---accountList:---");
+		System.out.println("---accountList.size()"+accountList.size()+"---");
 		
 		List<Employee> emList = new ArrayList<>();
 		Employee e = null;
 		for (Account account : accountList) {
 			//System.out.println(account.toString());
-			
 			e = new Employee();
 			e = employeeMapper.getEmployeeById(account.getEmployeeId());
 			emList.add(e);
 		}
-		System.out.println("---accountList:end--->>");
 		return emList;
+	}
+
+	@Override
+	public List<Employee> getEmployeeByName(String name) {
+		System.out.println("---EmployeeServiceImpl.getEmployeeByName(name:"+name+")---");
+		
+		return employeeMapper.getEmployeeByName(name);
 	}
 
 }

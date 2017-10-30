@@ -11,5 +11,6 @@ import com.bwjf.entity.Employee;
  * @描述 员工逻辑业务层接口
  */
 public interface EmployeeService {
-	public List<Employee> getEmployeeByList(List<Account> accountList);			//根据accountList里的员工工号查询员工信息		
+	public List<Employee> getEmployeeByList(List<Account> accountList);			//根据accountList里的员工工号查询员工信息
+	public List<Employee> getEmployeeByName(String name);						//根据姓名查询员工id
 }

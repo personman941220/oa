@@ -3,6 +3,7 @@ package com.bwjf.utils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 import com.thoughtworks.xstream.core.util.Base64Encoder;
 
@@ -36,5 +37,7 @@ public class MD5Util {
 		}
 		return newstr;
 	}
-
+	public static void main(String[] args){
+		
+	}
 }

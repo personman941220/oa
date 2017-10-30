@@ -12,5 +12,6 @@ import com.bwjf.entity.Role;
  */
 public interface RoleService {
 	public List<Role> getAllRole();			//获得所有角色名
-	public List<Role> getRoleByList(List<Account> accountAllList);		//根据accountAllList查询对应的角色信息集合		
+	public List<Role> getRoleByList(List<Account> accountAllList);		//根据accountAllList查询对应的角色信息集合	
+	
 }

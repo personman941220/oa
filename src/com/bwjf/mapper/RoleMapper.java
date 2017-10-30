@@ -12,4 +12,5 @@ import com.bwjf.entity.Role;
 public interface RoleMapper {
 	public List<Role> getAllRole();
 	public Role getRoleById(int roleId);
+	
 }

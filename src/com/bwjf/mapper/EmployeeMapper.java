@@ -1,5 +1,9 @@
 package com.bwjf.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.bwjf.entity.Employee;
 
 /**
@@ -9,4 +13,5 @@ import com.bwjf.entity.Employee;
  */
 public interface EmployeeMapper {
 	public Employee getEmployeeById(int employeeId);
+	public List<Employee> getEmployeeByName(String name);
 }

@@ -50,6 +50,7 @@ public class LoginController {
 
 	@RequestMapping("/home.do")
 	public String login(String username,String password,HttpServletRequest request){
+		System.out.println("===LoginController.login("+username+","+password+")===");
 		//session声明
 		HttpSession session;
 		//错误信息声明
@@ -65,7 +66,6 @@ public class LoginController {
 				error="帐户不存在或已失效";
 				//将错误信息放到session中
 				request.getSession().setAttribute("error", error);
-				System.out.println("帐户不存在或已失效");
 				//重定向到登录页面
 				return "redirect:/login.jsp";
 			}
@@ -75,7 +75,6 @@ public class LoginController {
 				error="密码错误！";
 				//将错误信息放到model中
 				request.getSession().setAttribute("error", error);
-				System.out.println("密码错误！");
 				//重定向到登录页面
 				return "redirect:/login.jsp";
 				
@@ -113,6 +112,7 @@ public class LoginController {
 		Account account = (Account) req.getSession().getAttribute("account");
 		Map map = new HashMap();
 		if(Oldpassword.equals(account.getPassword())){
+			map.put("msg","√");
 		}else{
 			map.put("msg","请输入原密码或密码错误");
 		}
@@ -123,29 +123,28 @@ public class LoginController {
 	}
 	//修改密码前的提交
 	@RequestMapping("/pwdModify2.do")
-	@ResponseBody
-	public String Modify2(String Oldpassword,String Newpassword,String Newpassword2,HttpServletRequest req){
+	public String Modify2(String Oldpassword,String Newpassword,String Newpassword2,Model model,HttpServletRequest req){
 		System.out.println("==========LoginController.Modify2()=========");
+		System.out.println(Oldpassword+"----"+Newpassword+"----"+Newpassword2);
 		Oldpassword=MD5Util.getMD5(Oldpassword);
 		Account account = (Account) req.getSession().getAttribute("account");
 		Map map = new HashMap();
 		//判断是否是本人
-		System.out.println(Oldpassword.equals(account.getPassword()));
 		if(Oldpassword.equals(account.getPassword())){
 			//判断两次密码是否一致
 			if(Newpassword.equals(Newpassword2)){
 				//进行修改密码操作。
 				Newpassword2 = MD5Util.getMD5(Newpassword2);
 				account.setPassword(Newpassword2);
-				accountService.setAccountPasswordById(account);
+				accountService.setPasswordById(account);
 			}else{
-				map.put("msg", "新密码和确认密码不一致，请确认");
+				model.addAttribute("msg","新密码和确认密码不一致，请确认");
 			}
 		}else{
-			map.put("msg","请输入原密码或密码错误");
+			model.addAttribute("msg","请输入原密码或密码错误");
 		}
 		//将map转成json，然后接收
 		jsonData = JSONObject.fromObject(map);
-		return jsonData.toString();
+		return "account/pwdModify";
 	}
 }
